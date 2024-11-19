@@ -1,4 +1,4 @@
-from test_build._core import hello_from_bin
+from cytnx_core._core import hello_from_bin
 
 
 def hello() -> str:
