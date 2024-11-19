@@ -1,7 +1,7 @@
 [project]
 name = "cytnx-core"
 version = "0.1.0"
-description = "Add your description here"
+description = "Core component of cytnx"
 readme = "README.md"
 authors = [
     { name = "kaihsin", email = "kaihsinwu@gmail.com" }
