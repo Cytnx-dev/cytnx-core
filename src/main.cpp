@@ -1,6 +1,6 @@
 #include <pybind11/pybind11.h>
 
-std::string hello_from_bin() { return "Hello from test-build!"; }
+std::string hello_from_bin() { return "Hello from!"; }
 
 namespace py = pybind11;
 

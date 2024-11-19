@@ -10,6 +10,18 @@ We use [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage t
     uv sync --all-extras --dev
 ```
 
+To trigger recompile of C++ code:
+
+```bash
+    uv sync --reinstall
+```
+
+In addition, pre-commit tool should be installed
+
+```bash
+    uv run pre-commit install
+```
+
 ### Building Dependency:
 
 - c++ compiler
