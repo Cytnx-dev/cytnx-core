@@ -7,7 +7,7 @@
 We use [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage the package.
 
 ```bash
-    uv sync
+    uv sync --all-extras --dev
 ```
 
 ### Building Dependency:
