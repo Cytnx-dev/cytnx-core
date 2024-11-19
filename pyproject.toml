@@ -1,0 +1,64 @@
+[project]
+name = "cytnx-core"
+version = "0.1.0"
+description = "Core component of cytnx"
+readme = "README.md"
+authors = [
+    { name = "kaihsin", email = "kaihsinwu@gmail.com" }
+]
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.scikit-build]
+minimum-version = "build-system.requires"
+build-dir = "build/{wheel_tag}"
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+target-version = "py310"
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+[tool.ruff.lint]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.isort]
+profile = "black"
+combine_as_imports = true
+multi_line_output = 3
+src_paths = ["src/cytnx_core"]
+
+[build-system]
+requires = ["scikit-build-core>=0.10", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+[dependency-groups]
+dev = [
+    "isort>=5.13.2",
+    "lint>=1.2.1",
+    "pre-commit>=4.0.1",
+    "pytest>=8.3.3",
+    "ruff>=0.7.4",
+]
