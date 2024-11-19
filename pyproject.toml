@@ -16,3 +16,10 @@ build-dir = "build/{wheel_tag}"
 [build-system]
 requires = ["scikit-build-core>=0.10", "pybind11"]
 build-backend = "scikit_build_core.build"
+
+[dependency-groups]
+dev = [
+    "lint>=1.2.1",
+    "pre-commit>=4.0.1",
+    "ruff>=0.7.4",
+]

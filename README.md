@@ -4,7 +4,7 @@
 ## Develop
 
 ### Package Management 
-We use uv to manage the package. 
+We use [uv](https://docs.astral.sh/uv/getting-started/installation/) to manage the package. 
 
 ```bash
     uv sync 
