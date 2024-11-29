@@ -22,9 +22,15 @@ In addition, pre-commit tool should be installed
     uv run pre-commit install
 ```
 
+Running pytest:
+
+```bash
+    uv run pytest
+```
+
 ### Building Dependency:
 
 - c++ compiler
-- cmake 3.15 (see CMakeList.txt)
+- cmake 3.15+ (see CMakeList.txt, default 3.20)
 
 * most of the deps should be able to install via pypi.
