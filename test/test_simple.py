@@ -1,4 +1,4 @@
-from cytnx_core import hello
+from cytnx_core import hello, MyClass
 
 
 def test_str():

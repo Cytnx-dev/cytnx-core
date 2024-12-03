@@ -12,4 +12,10 @@ PYBIND11_MODULE(_core, m) {
   m.def("hello_from_bin", &hello_from_bin, R"pbdoc(
       A function that returns a Hello string.
   )pbdoc");
+
+  py::class_<cytnx_core::MyClass>(m, "MyClass")
+    // construction
+    .def(py::init<int>(), py::arg("num"))
+    .def("get_num", &cytnx_core::MyClass::get_num)
+  ;
 }
