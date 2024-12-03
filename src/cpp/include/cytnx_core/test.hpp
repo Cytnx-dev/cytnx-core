@@ -4,13 +4,13 @@
 
 namespace cytnx_core {
 
-    class MyClass{
-        public:
-            int num;
-            MyClass(int num);
-            int get_num();
-    };
+class MyClass {
+public:
+  int num;
+  MyClass(int num);
+  int get_num();
+};
 
-    std::string test();
+std::string test();
 
-}
+} // namespace cytnx_core
