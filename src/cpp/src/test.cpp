@@ -1,4 +1,5 @@
-#include "test.hpp"
+#include "cytnx_core/test.hpp"
 #include <iostream>
+#include <string>
 
-void test() { std::cout << "Hello from test" << std::endl; }
+std::string test() { return "Hello from test"; }

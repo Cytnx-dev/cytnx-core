@@ -1,9 +1,9 @@
 #pragma once
 
-#include <cstring>
+#include <string>
 
 namespace cytnx_core {
 
-void test();
+std::string test();
 
 }
