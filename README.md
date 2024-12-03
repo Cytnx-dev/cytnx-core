@@ -34,3 +34,12 @@ Running pytest:
 - cmake 3.15+ (see CMakeList.txt, default 3.20)
 
 * most of the deps should be able to install via pypi.
+
+
+## Compile directly the C++ package
+
+```bash
+   $mkdir build
+   $cd build
+   $cmake ../ -DCMAKE_INSTALL_PREFIX=<install destination>
+```
