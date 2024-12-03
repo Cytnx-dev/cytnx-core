@@ -1,4 +1,4 @@
-from cytnx_core.pycytnx import hello_from_bin
+from cytnx_core._core import hello_from_bin
 
 
 def hello() -> str:
