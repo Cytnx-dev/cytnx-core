@@ -14,7 +14,7 @@ PYBIND11_MODULE(_core, m) {
   )pbdoc");
 
   py::class_<cytnx_core::MyClass>(m, "MyClass")
-      // construction
-      .def(py::init<int>(), py::arg("num"))
-      .def("get_num", &cytnx_core::MyClass::get_num);
+    // construction
+    .def(py::init<int>(), py::arg("num"))
+    .def("get_num", &cytnx_core::MyClass::get_num);
 }
