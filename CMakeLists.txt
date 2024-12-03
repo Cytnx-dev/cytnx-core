@@ -71,6 +71,7 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/cpp/include/
   COMPONENT headers
   FILES_MATCHING PATTERN "*.h*")
 
+
 export(EXPORT cytnx_targets FILE ${CMAKE_CURRENT_BINARY_DIR}/CytnxTargets.cmake NAMESPACE cytnx_core::)
 export(PACKAGE cytnx_core)
 
@@ -80,8 +81,13 @@ export(PACKAGE cytnx_core)
 set(PYBIND11_FINDPYTHON ON)
 find_package(pybind11 CONFIG REQUIRED)
 
-pybind11_add_module(pycytnx MODULE src/cpp/pybind/main.cpp)
-target_link_libraries(pycytnx PUBLIC cytnx_core)
+pybind11_add_module(_core MODULE src/cpp/pybind/main.cpp)
+target_link_libraries(_core PUBLIC cytnx_core)
+
+install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/src/cytnx_core
+    DESTINATION ${CMAKE_INSTALL_PREFIX}
+)
+install(TARGETS _core LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/cytnx_core)
 #install(TARGETS pycytnx DESTINATION ${SKBUILD_PROJECT_NAME})
-install(TARGETS pycytnx DESTINATION ${CMAKE_INSTALL_PREFIX}/cytnx_core)
 message(STATUS " skbuild Installation Prefix: ${SKBUILD_PROJECT_NAME}")
+message(STATUS " skbuild Installation Prefix: ${SKBUILD_HEADERS_DIR}")
