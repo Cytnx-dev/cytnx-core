@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.10"
 dependencies = [
     "numpy>=2.2.0",
+    "scipy-openblas64>=0.3.28.0.2",
 ]
 
 [tool.scikit-build]
@@ -59,7 +60,11 @@ multi_line_output = 3
 src_paths = ["src/cytnx_core"]
 
 [build-system]
-requires = ["scikit-build-core>=0.10", "pybind11"]
+requires = [
+    "scikit-build-core>=0.10",
+    "pybind11",
+    "scipy-openblas64>=0.3.28.0.2",
+]
 build-backend = "scikit_build_core.build"
 
 [dependency-groups]
