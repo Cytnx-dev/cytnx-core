@@ -1,8 +1,10 @@
 target_sources_local(cytnx_core
   PRIVATE
-  # put cpp files here
-  test.cpp
+
+  Device.cpp
+  Type.cpp
 
 )
+
 
 #add_subdirectory(storage)
