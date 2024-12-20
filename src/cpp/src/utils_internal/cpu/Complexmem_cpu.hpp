@@ -1,0 +1,25 @@
+#ifndef CYTNX_BACKEND_UTILS_INTERNAL_CPU_COMPLEXMEM_CPU_H_
+#define CYTNX_BACKEND_UTILS_INTERNAL_CPU_COMPLEXMEM_CPU_H_
+
+#include <cstdio>
+#include <cstdlib>
+#include <stdint.h>
+#include <climits>
+#include <cytnx_core/Type.hpp>
+
+namespace cytnx_core {
+  namespace utils_internal {
+
+    void Complexmem_cpu_cdtd(void *out, void *in, const cytnx_uint64 &Nelem, const bool get_real);
+    void Complexmem_cpu_cftf(void *out, void *in, const cytnx_uint64 &Nelem, const bool get_real);
+
+    void ComplexMatrix_from_real_cd(void *out, void *in, const cytnx_uint64 &m,
+                                    const cytnx_uint64 &n, const bool real_part);
+
+    void ComplexMatrix_from_real_cf(void *out, void *in, const cytnx_uint64 &m,
+                                    const cytnx_uint64 &n, const bool real_part);
+
+  }  // namespace utils_internal
+}  // namespace cytnx_core
+
+#endif  // CYTNX_BACKEND_UTILS_INTERNAL_CPU_COMPLEXMEM_CPU_H_

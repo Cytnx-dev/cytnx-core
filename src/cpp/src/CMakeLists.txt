@@ -7,4 +7,4 @@ target_sources_local(cytnx_core
 )
 
 
-#add_subdirectory(storage)
+add_subdirectory(utils_internal)
