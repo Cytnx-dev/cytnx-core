@@ -42,6 +42,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "numpy" },
+    { name = "scipy-openblas32" },
 ]
 
 [package.dev-dependencies]
@@ -54,7 +55,10 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "numpy", specifier = ">=2.2.0" }]
+requires-dist = [
+    { name = "numpy", specifier = ">=2.2.0" },
+    { name = "scipy-openblas32", specifier = ">=0.3.28.0.2" },
+]
 
 [package.metadata.requires-dev]
 dev = [
@@ -388,6 +392,24 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/43/a9/1676ee9106995381e3d34bccac5bb28df70194167337ed4854c20f27c7ba/ruff-0.8.4-py3-none-win32.whl", hash = "sha256:552fb6d861320958ca5e15f28b20a3d071aa83b93caee33a87b471f99a6c0835", size = 8805621 },
     { url = "https://files.pythonhosted.org/packages/10/98/ed6b56a30ee76771c193ff7ceeaf1d2acc98d33a1a27b8479cbdb5c17a23/ruff-0.8.4-py3-none-win_amd64.whl", hash = "sha256:f21a1143776f8656d7f364bd264a9d60f01b7f52243fbe90e7670c0dfe0cf65d", size = 9660086 },
     { url = "https://files.pythonhosted.org/packages/13/9f/026e18ca7d7766783d779dae5e9c656746c6ede36ef73c6d934aaf4a6dec/ruff-0.8.4-py3-none-win_arm64.whl", hash = "sha256:9183dd615d8df50defa8b1d9a074053891ba39025cf5ae88e8bcb52edcc4bf08", size = 9074500 },
+]
+
+[[package]]
+name = "scipy-openblas32"
+version = "0.3.28.0.2"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d4/b8/9d8baa4cd55c41f7dcf0e037fda0cc093193fe4a1f2f2e849fb287a66f10/scipy_openblas32-0.3.28.0.2-py3-none-macosx_10_9_x86_64.whl", hash = "sha256:233f449a842a754a5154af399a6b4ea6ffb27457883339a6b324b1fc3e55cad8", size = 14455324 },
+    { url = "https://files.pythonhosted.org/packages/82/8e/69b2960a0cb3b314ee1248591ff403b760d4e79c3348d54b4fbc7254eaaa/scipy_openblas32-0.3.28.0.2-py3-none-macosx_11_0_arm64.whl", hash = "sha256:cb97169552004960ad6758d0c65998dbcd23bb4908e321381d288ed6c019280e", size = 9262386 },
+    { url = "https://files.pythonhosted.org/packages/ac/4f/814c1040ef28ac5f57ca2af4d80287f74c92298f382727671f252b5c1a2f/scipy_openblas32-0.3.28.0.2-py3-none-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b10b433d4c48c74ea1a3b88dae31447a1bae5597d04577a531fbc16f2bdcf84b", size = 8196936 },
+    { url = "https://files.pythonhosted.org/packages/80/cc/bc8c58af61eb4f6069676f5fdef1c22305d765a8ab8496839073477c9be3/scipy_openblas32-0.3.28.0.2-py3-none-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:875f981d5024833775322ef2aae4aa0545283e856503326812e9dc1aeafaef14", size = 6303760 },
+    { url = "https://files.pythonhosted.org/packages/d7/80/2078f231d2613639955062a561727ca94a02012760420d1837eedd191ec8/scipy_openblas32-0.3.28.0.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6f0ecb748ce7dc7996220614100d7bf87fa0aab9499bbbdabbdcb6f5487a9e65", size = 8103675 },
+    { url = "https://files.pythonhosted.org/packages/9d/86/9454315abd27c4beaa7610af0bc3bca33552b7eb5869b5b3c4d98f009d67/scipy_openblas32-0.3.28.0.2-py3-none-musllinux_1_1_aarch64.whl", hash = "sha256:c4b6cf0067a6c62ef4b998a4cf59694cd1e13a7bf994346bc5dcddbf3e7a2a80", size = 7369259 },
+    { url = "https://files.pythonhosted.org/packages/bd/52/40b196222876e49d718483ee2eb264be316b37bd65d9c3cb2f2c2642aabe/scipy_openblas32-0.3.28.0.2-py3-none-musllinux_1_1_x86_64.whl", hash = "sha256:a0597896ac1e0973b3da6ea15e03f2189ded49780d6571773698842072e66eb2", size = 7949762 },
+    { url = "https://files.pythonhosted.org/packages/9a/ee/7c2822e35e1b4e2bd53265e2fc0217a0a71835897a74b189e4a1beb2ad31/scipy_openblas32-0.3.28.0.2-py3-none-musllinux_1_2_aarch64.whl", hash = "sha256:35051f9ee933ec642caafc1101b79a760bd536597e486e0168a7700afec256b0", size = 8441468 },
+    { url = "https://files.pythonhosted.org/packages/d2/69/e16b6e0d4afaa8e92ca3193a4afdbd71bf7cff37cccc6571f1105ad0e618/scipy_openblas32-0.3.28.0.2-py3-none-musllinux_1_2_x86_64.whl", hash = "sha256:ea226ce2ffd8a5bfc020aa8d80e1013c758a8032e87588681b04cd25d1b1fd48", size = 8679203 },
+    { url = "https://files.pythonhosted.org/packages/82/ac/8bfd98e94f94bd6f8b26648e2b6095074eff4c40bd6be51b327160879cc2/scipy_openblas32-0.3.28.0.2-py3-none-win32.whl", hash = "sha256:e6595e950df5584fe9fdf5f483b321432e14c7792d61f0cf3d6bf2bc4d2c39be", size = 5548271 },
+    { url = "https://files.pythonhosted.org/packages/28/85/8d836ddc266a2aa252951cacf00a00cc3172afb80353e2e0e02ffea21f0e/scipy_openblas32-0.3.28.0.2-py3-none-win_amd64.whl", hash = "sha256:7a6c0618760084278eeda0ea0d1d7ca77eebbc4fce9f0a0b4fef82000e5ec01b", size = 7053355 },
 ]
 
 [[package]]
