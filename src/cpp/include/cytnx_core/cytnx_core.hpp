@@ -10,4 +10,4 @@
 #include <cytnx_core/Device.hpp>
 #include <cytnx_core/Type.hpp>
 
-#endif // CYTNX_CORE_H_
+#endif  // CYTNX_CORE_H_
