@@ -43,3 +43,7 @@ Running pytest:
    $cd build
    $cmake ../ -DCMAKE_INSTALL_PREFIX=<install destination>
 ```
+
+## For DEV:
+
+1. Please add corresponding .pyi for binded objects/modules to comply with linting.
