@@ -4,6 +4,7 @@ message(STATUS "  Project Cytnx (core), A Cross-section of Python & C++,Tensor n
 message(STATUS "------------------------------------------------------------------------")
 message(STATUS "")
 
+
 # #####################################################################
 # ## CMAKE and CXX VERSION
 # #####################################################################
@@ -20,7 +21,7 @@ message(STATUS " Installation Prefix: ${CMAKE_INSTALL_PREFIX}")
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # #####################################################################
-# Version information
+# Project
 # #####################################################################
 include(version.cmake)
 set(CYTNX_CORE_VERSION
@@ -28,7 +29,6 @@ set(CYTNX_CORE_VERSION
 )
 set(PKG_NAME "cytnx_core") # only need to change this for different pkg
 
-## Project:
 project(CYTNX_CORE VERSION ${CYTNX_CORE_VERSION} LANGUAGES CXX C)
 add_library(${PKG_NAME} STATIC)
 set_property(TARGET ${PKG_NAME} PROPERTY C_VISIBILITY_PRESET hidden)
@@ -48,6 +48,65 @@ target_compile_definitions(${PKG_NAME} PUBLIC _LIBCPP_DISABLE_AVAILABILITY)
 target_compile_definitions(${PKG_NAME} PUBLIC _LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION)
 target_compile_options(${PKG_NAME} PUBLIC -Wformat=0 -w -fsized-deallocation)
 target_compile_features(${PKG_NAME} PUBLIC cxx_std_17)
+
+# ##########################
+# Pre-define options when build with skbuild
+# ##########################
+
+if(DEFINED SKBUILD)
+
+    execute_process(
+      COMMAND bash -c "python -c 'import site; print(site.getsitepackages()[0],end=str())'"
+      OUTPUT_VARIABLE PY_SITE_PKG_PREFIX
+    )
+
+    # get openblas deps
+    set(OpenBLAS_LIBRARIES ${PY_SITE_PKG_PREFIX}/scipy_openblas32/lib/libscipy_openblas.so)
+    set(OpenBLAS_INCLUDE_DIRS ${PY_SITE_PKG_PREFIX}/scipy_openblas32/include)
+    set(BLAS_LIBRARIES ${OpenBLAS_LIBRARIES})
+    set(LAPACK_LIBRARIES ${OpenBLAS_LIBRARIES})
+    target_include_directories(${PKG_NAME} SYSTEM
+      PUBLIC
+      ${OpenBLAS_INCLUDE_DIRS}
+    )
+    target_link_libraries(${PKG_NAME} PUBLIC ${LAPACK_LIBRARIES})
+endif()
+
+
+# ##########################
+# Linalg
+# ##########################
+if (USE_MKL)
+  option(MKL_SDL "Link to a single MKL dynamic libary." ON)
+  option(MKL_MLT "Use multi-threading libary. [Default]" ON)
+  mark_as_advanced(MKL_SDL MKL_MLT)
+  set(CYTNX_VARIANT_INFO "${CYTNX_VARIANT_INFO} UNI_MKL")
+  target_compile_definitions(${PKG_NAME} PUBLIC UNI_MKL)
+  target_compile_definitions(${PKG_NAME} PUBLIC MKL_ILP64)
+endif() #use_mkl
+
+if( NOT (DEFINED BLAS_LIBRARIES AND DEFINED LAPACK_LIBRARIES))
+  if (USE_MKL)
+    #set(BLA_VENDOR Intel10_64ilp)
+    set(BLA_VENDOR Intel10_64_dyn)
+    find_package( BLAS REQUIRED)
+    find_package( LAPACK REQUIRED)
+    #find_package(MKL REQUIRED)
+    target_link_libraries(${PKG_NAME} PUBLIC ${LAPACK_LIBRARIES})
+    message( STATUS "LAPACK found: ${LAPACK_LIBRARIES}" )
+  else()
+    set(BLA_VENDOR OpenBLAS)
+    find_package( BLAS REQUIRED)
+    find_package( LAPACK REQUIRED)
+    target_link_libraries(${PKG_NAME} PUBLIC ${LAPACK_LIBRARIES})
+    message( STATUS "LAPACK found: ${LAPACK_LIBRARIES}" )
+  endif()
+
+else()
+  set(LAPACK_LIBRARIES  ${BLAS_LIBRARIES}  ${LAPACK_LIBRARIES})
+  message( STATUS "LAPACK found: ${LAPACK_LIBRARIES}")
+  target_link_libraries(${PKG_NAME} PUBLIC ${LAPACK_LIBRARIES})
+endif()
 
 
 ## install

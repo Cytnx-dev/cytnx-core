@@ -60,7 +60,11 @@ multi_line_output = 3
 src_paths = ["src/cytnx_core"]
 
 [build-system]
-requires = ["scikit-build-core>=0.10", "pybind11"]
+requires = [
+    "scikit-build-core>=0.10",
+    "pybind11",
+    "scipy_openblas32>=0.3.28.0.2",
+]
 build-backend = "scikit_build_core.build"
 
 [dependency-groups]
