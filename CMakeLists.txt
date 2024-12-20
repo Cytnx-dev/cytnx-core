@@ -61,8 +61,9 @@ if(DEFINED SKBUILD)
     )
 
     # get openblas deps
-    set(OpenBLAS_LIBRARIES ${PY_SITE_PKG_PREFIX}/scipy_openblas32/lib/libscipy_openblas.so)
-    set(OpenBLAS_INCLUDE_DIRS ${PY_SITE_PKG_PREFIX}/scipy_openblas32/include)
+    set(OpenBLAS_LIBRARIES ${PY_SITE_PKG_PREFIX}/scipy_openblas64/lib/libscipy_openblas64_.so)
+    set(OpenBLAS_INCLUDE_DIRS ${PY_SITE_PKG_PREFIX}/scipy_openblas64/include)
+    option(LAPACK_ILP64 "using openblas with ILP64")
     set(BLAS_LIBRARIES ${OpenBLAS_LIBRARIES})
     set(LAPACK_LIBRARIES ${OpenBLAS_LIBRARIES})
     target_include_directories(${PKG_NAME} SYSTEM
