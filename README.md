@@ -35,6 +35,10 @@ Running pytest:
 
 * most of the deps should be able to install via pypi.
 
+GPU:
+- CUDA Toolit
+
+
 
 ## Compile directly the C++ package
 
