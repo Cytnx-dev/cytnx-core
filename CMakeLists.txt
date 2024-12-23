@@ -20,6 +20,8 @@ message(STATUS " Build Target: ${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
 message(STATUS " Installation Prefix: ${CMAKE_INSTALL_PREFIX}")
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+
+
 # #####################################################################
 # Project
 # #####################################################################
@@ -107,6 +109,14 @@ else()
   set(LAPACK_LIBRARIES  ${BLAS_LIBRARIES}  ${LAPACK_LIBRARIES})
   message( STATUS "LAPACK found: ${LAPACK_LIBRARIES}")
   target_link_libraries(${PKG_NAME} PUBLIC ${LAPACK_LIBRARIES})
+endif()
+
+# ###########
+# Options
+# ###########
+option(USE_CUDA "Build using Nvidia CUDA for GPU library" OFF)
+if(USE_CUDA)
+  include(cmake/config_cuda.cmake)
 endif()
 
 

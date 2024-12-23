@@ -17,6 +17,9 @@ minimum-version = "build-system.requires"
 build-dir = "build/{wheel_tag}"
 build.tool-args = ["-j4"]
 
+[tool.scikit-build.cmake.define]
+USE_CUDA = "OFF"
+
 # only use pypi registry
 [[tool.uv.index]]
 name = "pypi"
