@@ -45,6 +45,6 @@ jobs:
       - name: Audit manylinux
         run: |
           ldd --version
-          uv run auditwheel-symbols --manylinux 2_39 dist/*whl
+          #uv run auditwheel-symbols --manylinux 2_39 dist/*whl
           uv run auditwheel repair dist/*whl --plat "manylinux_2_39_x86_64" --exclude libscipy_openblas64_.so
           #uv run twine upload wheelhouse/*manylinux* -p ${{ secrets.PYPI_TOKEN }}
