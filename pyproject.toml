@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
+    "cibuildwheel>=2.22.0",
     "numpy>=2.2.0",
     "scipy-openblas64>=0.3.28.0.2",
 ]
@@ -77,4 +78,7 @@ dev = [
     "pre-commit>=4.0.1",
     "pytest>=8.3.3",
     "ruff>=0.7.4",
+    "auditwheel-symbols>=0.1.13",
+    "auditwheel>=6.1.0",
+    "twine>=6.0.1",
 ]
