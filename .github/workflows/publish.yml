@@ -43,5 +43,5 @@ jobs:
 
       - name: Audit manylinux
         run: |
-          uv run auditwheel repair --manylinux 2_17 dist/*whl --exclude libscipy_openblas64_.so
+          uv run auditwheel repair dist/*whl --exclude libscipy_openblas64_.so
           uv run twine upload wheelhouse/*manylinux* -p ${{ secrets.PYPI_TOKEN }}
